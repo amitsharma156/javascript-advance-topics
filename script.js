@@ -129,30 +129,64 @@
 
 // functions returning functions
 
-function interviewQuestion(job){
-    if(job ==='designer'){
-        return function(name){
-            console.log(name + ' , can u plz explain ux design');
-        }
-    }
-    else if(job==='teacher'){
-        return function(name){
-            console.log('What subject do you teach, '+name + '?');
-        }
-    }
-    else {
-        return function(name){
-            console.log('Hello '+ name + ' , what do you do ?');
-        }
-    }
-}
-var teacherQuestion = interviewQuestion('teacher');
-var designerQuestion = interviewQuestion('designer');
+// function interviewQuestion(job){
+//     if(job ==='designer'){
+//         return function(name){
+//             console.log(name + ' , can u plz explain ux design');
+//         }
+//     }
+//     else if(job==='teacher'){
+//         return function(name){
+//             console.log('What subject do you teach, '+name + '?');
+//         }
+//     }
+//     else {
+//         return function(name){
+//             console.log('Hello '+ name + ' , what do you do ?');
+//         }
+//     }
+// }
+// var teacherQuestion = interviewQuestion('teacher');
+// var designerQuestion = interviewQuestion('designer');
 
-teacherQuestion('john');
-designerQuestion('john');
+// teacherQuestion('john');
+// designerQuestion('john');
 
-interviewQuestion('teacher')('Mark');
+// interviewQuestion('teacher')('Mark');
+
+//IIfe
+
+
+
+(function(){
+    var score =Math.random()*10;
+    console.log(score>=5);
+})();
+
+(function(goodLuck){
+    var score =Math.random()*10;
+    console.log(score>=5-goodLuck);
+})(5);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
