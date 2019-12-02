@@ -78,34 +78,57 @@
 
 //Passing functions as arguments
 
-var years = [1990,1965,1972,1928,1999];
+// var years = [1990,1965,1972,1928,1999];
 
-function arrayCalc(arr,fn){
-    var newArr = [];
-    for( var i=0; i<arr.length ; i++){
-        newArr.push(fn(arr[i]));
-    }
-    return newArr;
-}
+// function arrayCalc(arr,fn){
+//     var newArr = [];
+//     for( var i=0; i<arr.length ; i++){
+//         newArr.push(fn(arr[i]));
+//     }
+//     return newArr;
+// }
 
-function calculateAge(age){
-    return 2010-age;
-}
-function adult(age){
-    return age>=18;
-}
-function maxHeartRate(age){
-    if(age>=18 && age<81){
-        return 206-age;
-    }
-    else{
-        return -1;
-    }
-}
+// function calculateAge(age){
+//     return 2010-age;
+// }
+// function adult(age){
+//     return age>=18;
+// }
+// function maxHeartRate(age){
+//     if(age>=18 && age<81){
+//         return 206-age;
+//     }
+//     else{
+//         return -1;
+//     }
+// }
 
-var ages = arrayCalc(years,calculateAge);
-var adullt =arrayCalc(ages,adult)
-var heart = arrayCalc(ages,maxHeartRate);
-console.log(ages);
-console.log(adullt);
-console.log(heart);
+// var ages = arrayCalc(years,calculateAge);
+// var adullt =arrayCalc(ages,adult)
+// var heart = arrayCalc(ages,maxHeartRate);
+// console.log(ages);
+// console.log(adullt);
+// console.log(heart);
+
+//Functions returning functions
+
+function interviewQuestion(job){
+    if(job === 'teacher'){
+        return function(name){
+            console.log('teacher - '+name)
+        }
+    }
+    else if(job === 'designer'){
+        return function(name){
+            console.log('designer - '+name);
+        }
+    }
+    else {
+        return function(name){
+            console.log('general ' +name);
+        }
+    }
+}
+var teacherQuestion = interviewQuestion('teacher');
+teacherQuestion('john');
+interviewQuestion('desiasagner')('mark');
