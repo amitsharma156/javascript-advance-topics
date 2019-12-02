@@ -158,15 +158,59 @@
 
 
 
-(function(){
-    var score =Math.random()*10;
-    console.log(score>=5);
-})();
+// (function(){
+//     var score =Math.random()*10;
+//     console.log(score>=5);
+// })();
 
-(function(goodLuck){
-    var score =Math.random()*10;
-    console.log(score>=5-goodLuck);
-})(5);
+// (function(goodLuck){
+//     var score =Math.random()*10;
+//     console.log(score>=5-goodLuck);
+// })(5);
+
+
+//Closures
+
+function retirement(retirementAge){
+    var a = ' years left until retirement';
+    return function(yearOfBirth){
+        var age = 2016-yearOfBirth;
+        console.log((retirementAge-age) + a)
+    }
+}
+
+var retirementUS = retirement(66);
+retirementUS(1990);
+var retirementGermany = retirement(65);
+var retirementIceland = retirement(67);
+retirementGermany(1990);
+retirementIceland(1990);
+
+
+function interviewQuestion(job){
+    return function(name){
+        if(job ==='designer'){
+            return function(name){
+                console.log(name + ' , can u plz explain ux design');
+            }
+        }
+        else if(job==='teacher'){
+            return function(name){
+                console.log('What subject do you teach, '+name + '?');
+            }
+        }
+        else {
+            return function(name){
+                console.log('Hello '+ name + ' , what do you do ?');
+            }
+        }
+    }
+}
+var teacherQuestion = interviewQuestion('teacher');
+var designerQuestion = interviewQuestion('designer');
+
+teacherQuestion('john');
+designerQuestion('jane');
 
 
 
